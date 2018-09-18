@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.w3.org/1999/XPath" id="m1536204220896" name="" targetNamespace="http://www.activiti.org/testm1536204220896" typeLanguage="http://www.w3.org/2001/XMLSchema">
+  <process id="accessProcess" name="accessProcess" isClosed="false" isExecutable="true" processType="None">
+    <startEvent id="_2" name="StartEvent"/>
+    <userTask activiti:candidateGroups="F20010" activiti:exclusive="true"  id="F20010" name="准入申请"/>
+    <userTask activiti:candidateGroups="F20020" activiti:exclusive="true"  id="F20020" name="准入审核"/>
+    <userTask activiti:candidateGroups="F20030" activiti:exclusive="true"   id="F20030" name="准入复核"/>
+    <endEvent id="_6" name="EndEvent"/>
+    <sequenceFlow id="_7" sourceRef="_2" targetRef="F20010"/>
+    <sequenceFlow id="_8" sourceRef="F20010" targetRef="F20020"/>
+    <sequenceFlow id="_9" sourceRef="F20020" targetRef="F20030"/>
+    <sequenceFlow id="_10" sourceRef="F20030" targetRef="_6"/>
+  </process>
+  <bpmndi:BPMNDiagram documentation="background=#3C3F41;count=1;horizontalcount=1;orientation=0;width=842.4;height=1195.2;imageableWidth=832.4;imageableHeight=1185.2;imageableX=5.0;imageableY=5.0" id="Diagram-_1" name="New Diagram">
+    <bpmndi:BPMNPlane bpmnElement="accessProcess">
+      <bpmndi:BPMNShape bpmnElement="_2" id="Shape-_2">
+        <dc:Bounds height="32.0" width="32.0" x="165.0" y="260.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="F20010" id="Shape-f20010">
+        <dc:Bounds height="55.0" width="85.0" x="260.0" y="390.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="F20020" id="Shape-f20020">
+        <dc:Bounds height="55.0" width="85.0" x="435.0" y="125.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="F20030" id="Shape-f20030">
+        <dc:Bounds height="55.0" width="85.0" x="645.0" y="415.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_6" id="Shape-_6">
+        <dc:Bounds height="32.0" width="32.0" x="905.0" y="250.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_7" id="BPMNEdge__7" sourceElement="_2" targetElement="F20010">
+        <di:waypoint x="197.0" y="276.0"/>
+        <di:waypoint x="260.0" y="417.5"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_8" id="BPMNEdge__8" sourceElement="F20010" targetElement="F20020">
+        <di:waypoint x="345.0" y="417.5"/>
+        <di:waypoint x="435.0" y="152.5"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_9" id="BPMNEdge__9" sourceElement="F20020" targetElement="F20030">
+        <di:waypoint x="520.0" y="152.5"/>
+        <di:waypoint x="645.0" y="442.5"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_10" id="BPMNEdge__10" sourceElement="F20030" targetElement="_6">
+        <di:waypoint x="730.0" y="442.5"/>
+        <di:waypoint x="905.0" y="266.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

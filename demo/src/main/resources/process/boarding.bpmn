@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:tns="http://www.activiti.org/testm1526872531976" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.w3.org/1999/XPath" id="m1526872531976" name="" targetNamespace="http://www.activiti.org/testm1526872531976" typeLanguage="http://www.w3.org/2001/XMLSchema">
+  <process id="boarding" isClosed="false" isExecutable="true" name="boarding" processType="None">
+    <startEvent id="_2" name="StartEvent"/>
+    <userTask activiti:candidateGroups="boardData" activiti:exclusive="true" id="boardData" name="资料准备"/>
+    <userTask activiti:candidateGroups="boardInformation" activiti:exclusive="true" id="boardInformation" name="上牌信息"/>
+    <userTask activiti:candidateGroups="boardCheck" activiti:exclusive="true" id="boardCheck" name="信息复核"/>
+    <endEvent id="_6" name="EndEvent"/>
+    <sequenceFlow id="_7" sourceRef="_2" targetRef="boardData"/>
+    <sequenceFlow id="_8" sourceRef="boardData" targetRef="boardInformation"/>
+    <sequenceFlow id="_9" sourceRef="boardInformation" targetRef="boardCheck"/>
+    <sequenceFlow id="_10" sourceRef="boardCheck" targetRef="_6"/>
+  </process>
+  <bpmndi:BPMNDiagram documentation="background=#3C3F41;count=1;horizontalcount=1;orientation=0;width=842.4;height=1195.2;imageableWidth=832.4;imageableHeight=1185.2;imageableX=5.0;imageableY=5.0" id="Diagram-_1" name="New Diagram">
+    <bpmndi:BPMNPlane bpmnElement="boarding">
+      <bpmndi:BPMNShape bpmnElement="_2" id="Shape-_2">
+        <dc:Bounds height="32.0" width="32.0" x="205.0" y="205.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="boardData" id="Shape-boardData">
+        <dc:Bounds height="55.0" width="85.0" x="305.0" y="195.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="boardInformation" id="Shape-boardInformation">
+        <dc:Bounds height="55.0" width="85.0" x="480.0" y="195.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="boardCheck" id="Shape-boardCheck">
+        <dc:Bounds height="55.0" width="85.0" x="650.0" y="195.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_6" id="Shape-_6">
+        <dc:Bounds height="32.0" width="32.0" x="825.0" y="205.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_7" id="BPMNEdge__7" sourceElement="_2" targetElement="boardData">
+        <di:waypoint x="237.0" y="221.0"/>
+        <di:waypoint x="305.0" y="222.5"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_8" id="BPMNEdge__8" sourceElement="boardData" targetElement="boardInformation">
+        <di:waypoint x="390.0" y="222.5"/>
+        <di:waypoint x="480.0" y="222.5"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_9" id="BPMNEdge__9" sourceElement="boardInformation" targetElement="boardCheck">
+        <di:waypoint x="565.0" y="222.5"/>
+        <di:waypoint x="650.0" y="222.5"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_10" id="BPMNEdge__10" sourceElement="boardCheck" targetElement="_6">
+        <di:waypoint x="735.0" y="222.5"/>
+        <di:waypoint x="825.0" y="221.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

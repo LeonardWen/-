@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:tns="http://www.activiti.org/testm1527153069521" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.w3.org/1999/XPath" id="m1527153069521" name="" targetNamespace="http://www.activiti.org/testm1527153069521" typeLanguage="http://www.w3.org/2001/XMLSchema">
+  <process id="renting" name ="renting" isClosed="false" isExecutable="true" processType="None">
+    <startEvent id="_2" name="StartEvent"/>
+    <userTask activiti:candidateGroups="rentEntry"  activiti:exclusive="true" id="rentEntry" name="进件环节"/>
+    <userTask activiti:candidateGroups="rentApproval"  activiti:exclusive="true" id="rentApproval" name="审批环节"/>
+    <userTask activiti:candidateGroups="rentOrder"  activiti:exclusive="true" id="rentOrder" name="定购签约"/>
+    <userTask activiti:candidateGroups="rentFinance"  activiti:exclusive="true" id="rentFinance" name="财务审核"/>
+    <userTask activiti:candidateGroups="rentDistribution"  activiti:exclusive="true" id="rentDistribution" name="订单配送"/>
+    <userTask activiti:candidateGroups="rentCav"  activiti:exclusive="true" id="rentCav" name="提车交接"/>
+    <userTask activiti:candidateGroups="rentReview"  activiti:exclusive="true" id="rentReview" name="信息复核"/>
+    <sequenceFlow id="_11" sourceRef="_2" targetRef="rentEntry"/>
+    <sequenceFlow id="_12" sourceRef="rentEntry" targetRef="rentApproval"/>
+    <sequenceFlow id="_13" sourceRef="rentApproval" targetRef="rentOrder"/>
+    <sequenceFlow id="_14" sourceRef="rentOrder" targetRef="rentFinance"/>
+    <sequenceFlow id="_15" sourceRef="rentFinance" targetRef="rentDistribution"/>
+    <sequenceFlow id="_16" sourceRef="rentDistribution" targetRef="rentCav"/>
+    <sequenceFlow id="_17" sourceRef="rentCav" targetRef="rentReview"/>
+  </process>
+  <bpmndi:BPMNDiagram documentation="background=#3C3F41;count=1;horizontalcount=1;orientation=0;width=842.4;height=1195.2;imageableWidth=832.4;imageableHeight=1185.2;imageableX=5.0;imageableY=5.0" id="Diagram-_1" name="New Diagram">
+    <bpmndi:BPMNPlane bpmnElement="myProcess_1">
+      <bpmndi:BPMNShape bpmnElement="_2" id="Shape-_2">
+        <dc:Bounds height="32.0" width="32.0" x="20.0" y="165.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="rentEntry" id="Shape-rentEntry">
+        <dc:Bounds height="55.0" width="85.0" x="110.0" y="155.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="rentApproval" id="Shape-rentApproval">
+        <dc:Bounds height="55.0" width="85.0" x="255.0" y="155.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="rentOrder" id="Shape-rentOrder">
+        <dc:Bounds height="55.0" width="85.0" x="410.0" y="155.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="rentFinance" id="Shape-rentFinance">
+        <dc:Bounds height="55.0" width="85.0" x="555.0" y="155.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="rentDistribution" id="Shape-rentDistribution">
+        <dc:Bounds height="55.0" width="85.0" x="730.0" y="155.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="rentCav" id="Shape-rentCav">
+        <dc:Bounds height="55.0" width="85.0" x="890.0" y="155.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="rentReview" id="Shape-rentReview">
+        <dc:Bounds height="55.0" width="85.0" x="1055.0" y="155.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_13" id="BPMNEdge__13" sourceElement="rentApproval" targetElement="rentOrder">
+        <di:waypoint x="340.0" y="182.5"/>
+        <di:waypoint x="410.0" y="182.5"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_12" id="BPMNEdge__12" sourceElement="rentEntry" targetElement="rentApproval">
+        <di:waypoint x="195.0" y="182.5"/>
+        <di:waypoint x="255.0" y="182.5"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_15" id="BPMNEdge__15" sourceElement="rentFinance" targetElement="_8">
+        <di:waypoint x="640.0" y="182.5"/>
+        <di:waypoint x="730.0" y="182.5"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_14" id="BPMNEdge__14" sourceElement="rentOrder" targetElement="rentFinance">
+        <di:waypoint x="495.0" y="182.5"/>
+        <di:waypoint x="555.0" y="182.5"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_17" id="BPMNEdge__17" sourceElement="_9" targetElement="_10">
+        <di:waypoint x="975.0" y="182.5"/>
+        <di:waypoint x="1055.0" y="182.5"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_16" id="BPMNEdge__16" sourceElement="_8" targetElement="_9">
+        <di:waypoint x="815.0" y="182.5"/>
+        <di:waypoint x="890.0" y="182.5"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_11" id="BPMNEdge__11" sourceElement="_2" targetElement="rentEntry">
+        <di:waypoint x="52.0" y="181.0"/>
+        <di:waypoint x="110.0" y="182.5"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

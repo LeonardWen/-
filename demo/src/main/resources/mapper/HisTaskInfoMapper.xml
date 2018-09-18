@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ys.springboot.demo.mapper.HisTaskInfoMapper">
+  <resultMap id="BaseResultMap" type="com.ys.springboot.demo.po.HisTaskInfo">
+    <id column="ID_" jdbcType="VARCHAR" property="id" />
+    <result column="PROC_INST_ID_" jdbcType="VARCHAR" property="procInstId" />
+    <result column="NAME_" jdbcType="VARCHAR" property="name" />
+    <result column="TASK_DEF_KEY_" jdbcType="VARCHAR" property="taskDefKey" />
+    <result column="OWNER_" jdbcType="VARCHAR" property="owner" />
+    <result column="ASSIGNEE_" jdbcType="VARCHAR" property="assignee" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID_, PROC_INST_ID_, NAME_, TASK_DEF_KEY_, OWNER_, ASSIGNEE_
+  </sql>
+
+  <select id="findByTaskDefKey" resultMap="BaseResultMap" resultType="String">
+    SELECT   task.ID_, task.PROC_INST_ID_, task.NAME_, task.TASK_DEF_KEY_, task.OWNER_, task.ASSIGNEE_ FROM ACT_HI_TASKINST task
+    where 1=1
+    <if test="taskDefKey != null">
+      and  task.TASK_DEF_KEY_ = #{taskDefKey,jdbcType=VARCHAR}
+    </if>
+    <if test="procInstId != null">
+      and  task.PROC_INST_ID_ = #{procInstId,jdbcType=VARCHAR}
+    </if>
+    order by task.ID_ desc limit 1
+  </select>
+
+</mapper>

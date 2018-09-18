@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ys.springboot.demo.mapper.TaskModelMapper">
+  <resultMap id="BaseResultMap" type="com.ys.springboot.demo.po.TaskModel">
+    <id column="ID_" jdbcType="VARCHAR" property="id" />
+    <result column="PROC_INST_ID_" jdbcType="VARCHAR" property="procInstId" />
+    <result column="NAME_" jdbcType="VARCHAR" property="name" />
+    <result column="TASK_DEF_KEY_" jdbcType="VARCHAR" property="taskDefKey" />
+    <result column="OWNER_" jdbcType="VARCHAR" property="owner" />
+    <result column="ASSIGNEE_" jdbcType="VARCHAR" property="assignee" />
+    <result column="CREATE_TIME_" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="BUSINESS_KEY_" jdbcType="VARCHAR" property="bussinessKey" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID_, PROC_INST_ID_, NAME_, TASK_DEF_KEY_, OWNER_, ASSIGNEE_, CREATE_TIME_,BUSINESS_KEY_
+  </sql>
+
+
+  <select id="findByAssigeneeAndName" resultMap="BaseResultMap" resultType="String">
+    SELECT   task.ID_, task.PROC_INST_ID_, task.NAME_, task.TASK_DEF_KEY_, task.OWNER_, task.ASSIGNEE_, task.CREATE_TIME_, execution.BUSINESS_KEY_ FROM ACT_RU_TASK task
+    left JOIN ACT_RU_EXECUTION execution on  execution.ID_ = task.PROC_INST_ID_
+    where 1=1
+    <if test="taskDefKey != null">
+      and  task.TASK_DEF_KEY_ = #{taskDefKey,jdbcType=VARCHAR}
+    </if>
+    <if test="assignee != null">
+      and  task.ASSIGNEE_ = #{assignee,jdbcType=VARCHAR}
+    </if>
+    order by task.ID_ desc
+  </select>
+
+  <select id="findByNameAndOwner" resultMap="BaseResultMap" resultType="java.util.Map">
+    SELECT   task.ID_, task.PROC_INST_ID_, task.NAME_, task.TASK_DEF_KEY_, task.OWNER_, task.ASSIGNEE_, task.CREATE_TIME_, execution.BUSINESS_KEY_ FROM ACT_RU_TASK task
+    left JOIN ACT_RU_EXECUTION execution on  execution.ID_ = task.PROC_INST_ID_
+    where task.ASSIGNEE_ is null
+    <if test="taskDefKey != null">
+      and  task.TASK_DEF_KEY_ = #{taskDefKey,jdbcType=VARCHAR}
+    </if>
+    <if test="owners != null">
+     and task.OWNER_ in
+      <foreach collection="owners" index="index" item="item" open="(" separator="," close=")">
+        #{item}
+      </foreach>
+    </if>
+    order by task.ID_ desc
+  </select>
+
+</mapper>
